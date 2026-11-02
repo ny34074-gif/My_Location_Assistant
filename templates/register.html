@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Account</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eaf2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 320px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #bbb;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1769aa;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1769aa;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            color: #1769aa;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Create Account</h2>
+
+    <form method="POST" action="/register">
+
+        <input type="text" name="name"
+               placeholder="Full Name" required>
+
+        <input type="email" name="email"
+               placeholder="Email Address" required>
+
+        <input type="password" name="password"
+               placeholder="Create Password" required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p>Already have an account?
+        <a href="/login">Login here</a>
+    </p>
+
+</div>
+
+</body>
+</html>
