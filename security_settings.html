@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Settings</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #101d3a, #263e69);
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+        }
+
+        h2 {
+            text-align: center;
+            color: #172554;
+            margin-top: 0;
+        }
+
+        p {
+            color: #64748b;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 8px;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Security Settings</h2>
+
+    <p>
+        Set a security question to help recover your account
+        if you forget your password.
+    </p>
+
+    <form method="POST" action="{{ url_for('security_settings') }}">
+
+        <label>Select Security Question</label>
+
+        <select name="question" required>
+            {% for q in questions %}
+                <option value="{{ q }}">{{ q }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Your Security Answer</label>
+
+        <input
+            type="password"
+            name="answer"
+            placeholder="Enter your answer"
+            minlength="3"
+            maxlength="100"
+            required
+        >
+
+        <button type="submit">Save Security Settings</button>
+
+    </form>
+
+    <a class="back" href="{{ url_for('logout') }}">
+        Back to Login
+    </a>
+
+</div>
+
+</body>
+</html>
